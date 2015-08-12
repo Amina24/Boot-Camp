@@ -4,13 +4,15 @@ class Greater
 {
     function Bigger($str)
     {
-        if (strcmp($str, "dkhc")==0) 
-         {
-            echo "hcdk\n";
-            return; 
+
+        $len= strlen($str);
+
+        for($i=0; $i< $len ; $i++)
+        {
+           $arr[]=  ord( $str[$len]);
         }
-        $len= strlen($str)-1;
-        for(; $len>0; $len--)
+        $len=-2;
+        for(; $len>=0; $len--)
         { 
            $ch1=  ord( $str[$len]);
            $ch2=  ord( $str[$len-1]);

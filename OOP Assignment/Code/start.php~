@@ -1,0 +1,158 @@
+
+<?php
+
+include "../classes/User.php";
+include_once '../classes/Tweet.php';
+
+class Tweeter
+{
+
+    public function __construct ()
+    {
+
+
+    
+    }
+
+    public function  WelcomePage()
+    {
+
+        echo "**********  Welcome to Twitter ***********\n\n" ; 
+        echo "    ***** Enter 1 for Login. *****\n";
+        echo "    ***** Enter 2 for Signup. *****\n\n";
+        echo "    ***** Ente ur choice :   ";
+
+        $choice= readLine();
+
+        switch($choice)
+        {
+        case "1" :
+            $this->login();
+            break;
+
+        case "2":
+            $this->signup();
+            break;
+
+        }
+
+
+    }
+
+    public function login()
+    {
+        do{
+
+
+        echo "\n\n**********  Twitter Login ***********\n\n" ; 
+        echo "    ***** Ente your email_id   :   ";
+        $email= readLine();
+
+
+        echo "    ***** Ente your password :   ";
+        $password= trim(readLine());
+
+
+       // echo $email."\n".$password;
+        $user = $this->checkUser($email, $password);
+
+        if($user)
+        {
+            echo "Welcome ".$user[1];
+            $input= 'n';
+        }
+        else
+        {
+            echo "\n\n**********  Do u want to continue Login (y/n) ***********\n\n" ; 
+            $input= readLine();
+        }
+
+        }while($input!='n' && $input!='N');
+
+    }
+
+    public function checkUser($e, $p)
+    {
+        $myfile = fopen("../Data/user_record.txt", "r") or die("Unable to open file!");
+        // Output one line until end-of-file
+        
+        while(!feof($myfile)) {
+
+            $line=  fgets($myfile);
+            $str =  explode(",", $line);
+
+
+
+            echo $line . "\n";
+	if (count($str) > 2)
+	{
+
+
+	//print_r($str);
+            if($str[2]===$e)
+            {
+                if($str[3]===$p)
+                {
+                     fclose($myfile);
+                    return $str;
+                }
+            } 
+        }
+       }
+
+       fclose($myfile);
+
+        echo "Email or Password is In valid, Please Try Again. ";
+            return;
+
+
+    }
+
+    public function signup()
+    {
+
+        $user= new User();
+
+        echo "\n\n**********  Twitter Signup ***********\n\n" ; 
+        echo "    ***** Ente your email_id   :   ";
+        $user->email = trim(readLine());
+
+
+        echo "    ***** Ente your password :   ";
+        $user->password=trim( readLine());
+
+        echo "    ***** Reenter your Password :   ";
+        $user->password=trim( readLine());
+
+         echo "    ***** Ente your user_id :   ";
+        $user->u_id=trim( readLine());
+
+      //  $user = $this->save_user($email, $password);
+
+
+        print_r($user);
+            echo "\n\n********** do u want Signup  **********";                 
+            $input= readLine();
+   
+    }
+
+    function read_stdin()
+    {
+        $fr=fopen("php://stdin","r");   // open our file pointer to read from stdin
+        $input = fgets($fr,128);        // read a maximum of 128 characters
+        $input = rtrim($input);         // trim any trailing spaces.
+        fclose ($fr);                   // close the file handle
+        return $input;                  // return the text entered
+    }
+
+
+	
+
+
+}
+
+$amina= new Tweeter();
+$amina->WelcomePage();
+
+
+?>

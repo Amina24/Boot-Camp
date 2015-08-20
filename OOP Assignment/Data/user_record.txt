@@ -1,0 +1,8 @@
+amina24,amina,23,amina@gmail.com,123,5
+sundas12,sundas,34,sundas@yahoo.com,123,7
+bilal24,bilal,45,bilal@hotmail.com,123,9
+a,a,55,a,a,3
+iqra,iqra,23,iqra.email,a,0
+b,b,b,b,b,0
+p,p,p,p,p,0
+t,t,t,t,t,0

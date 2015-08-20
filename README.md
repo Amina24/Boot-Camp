@@ -1,12 +1,11 @@
 # Bootcamp
 
 ## Dot File :
-	that have the .vimrc and .zshrc nd alaias.
+    that have the .vimrc and .zshrc nd alaias.
 
 ## OOP_Assigment :
 
-	In Php language using Object Oriented Programming and careate a Twitter...
-	that contains ERD, Classes , Files(Data Stored), and codes Files.
+In Php language using Object Oriented Programming and careate a Twitter that contains ERD, Classes , Files(Data Stored), and codes Files.
 
 ## Meeting :
 		
@@ -16,3 +15,6 @@
 ## hackerrank Problems:
 	
 	Different Hankerrank Problems and along with the pictures.
+
+##Status Report: 
+    Sattus Report of Each Day.

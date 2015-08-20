@@ -20,8 +20,8 @@ Coeus has both projects and product base company.
 * 
 ** Products:** ... Coeus has its **own Products and enhance them** to come into market like:
 
- * ***Apatrip :*** its s Mobile Application for Hotels so that they facilitate their customers.
- *  ***yourTravelAgent :*** that is a just like a travel agent, gives all information according to place and provide guidelines.
+***Apatrip :*** its s Mobile Application for Hotels so that they facilitate their customers.
+   ***yourTravelAgent :*** that is a just like a travel agent, gives all information according to place and provide guidelines.
 
 
 
@@ -51,20 +51,14 @@ Two Types of Contracts with Customers.
 
 
 * ###  Dedicated Development Contract :
-
- **Meta_Design or E-comme **, associated companies **hired direct resource** from coeus for development, mostly **risk at the Client end** so **less charge **to the Client, and **pay fixed price at the end of the month**. if a php developer is hired by Meta-Design, he assign task to him and less risk at the coeus end. 
+**Meta_Design or E-comme **, associated companies **hired direct resource** from coeus for development, mostly **risk at the Client end** so **less charge **to the Client, and they **pay fixed price at the end of the month**. if a php developer is hired by Meta-Design, he assign task to him and less risk at the coeus end. 
 
 
 * ###  Fixed Price Contarct : 
-
- At the **End-Customer** , they give requirements and **amount of money describe according to their work**, but if the **creeping requirement** are there, then price will be increase,mostly **risk at the company side** because of creeping requirement , deadlines meet and delay in payments etc, so usually **high charged**.
+At the **End-Customer** , they give requirements and **amount of money describe according to their work**, but if the **creeping requirement** are there, then price will be increase,mostly **risk at the company side** because of creeping requirement , deadlines meet and delay in payments etc,  usually **highly charged**.
 
 
 ## Common Discussion :
-
-
-* 
-**Payments:** Mostly payment of End-Customers done by the mile stone, after reach at a milestone 
 
 * 
 **Process Follow:** A version of Scrum is followed in Coeus, Mostly we  can say, **Agile** is Followed.
@@ -73,5 +67,4 @@ Two Types of Contracts with Customers.
 
 2.  
 **Customer Interact: **Direct Sales Manager, Project Manager,Quality Assurance, Some Times Team Lead and Software Engineer also interact with Customer.
-
 

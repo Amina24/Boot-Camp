@@ -11,7 +11,23 @@ use App\cart;
 use App\trans;
 class BookController extends Controller
 {
-    //
+    //{{action('BookController@add_to_cart' , ['id'=> $books[$i]['b_id']])}}
+    
+    
+    
+    /*
+     <?php 
+                    echo '<pre>';
+                    print_r($_SESSION);
+                    echo '</pre>';
+                    
+                    ?>
+     * 
+     * */
+    
+    public function __construct() {
+        session_start();
+    }
     
     public function  index()
     {
@@ -49,45 +65,42 @@ class BookController extends Controller
     public function add_to_cart($id)
     {
       
-       session_start();
-       if(isset ($_SESSION['cart']))
-       {
-           $_SESSION['cart'][]= $id;
-       }
-       else
+       //session_start();
+       if(! isset ($_SESSION['cart']))
        {
            $_SESSION['cart'] = array();
-           $_SESSION['cart'][]= $id;
        }
-
+       $b= Book::where('b_id', $id)->first();
+       $_SESSION['cart'][]= ["id"=> $id , "name"=> $b->name];
        
-        return $this->index();
+       return "added";
+        //return $this->index();
     }
     
     public function  show_cart()
     {
-        session_start();
+       // session_start();
         $books= array();
         
        if(isset ($_SESSION['cart']))
        {
             foreach($_SESSION['cart'] as $item)
             {
-                $books[]= Book::where('b_id', $item)->first();
+                $books[]= Book::where('b_id', $item["id"])->first();
             }
        }
-     //  return count($books);
+       //return count($books);
        return view('cart', compact('books'));
        
     }
     public function buy_books()
     {
-        session_start();
+       // session_start();
         
        if(!isset ($_SESSION['user_id']))
        {
-           return $msg="U r not Login... Please Login to continue ....";
-           $this->index();
+           $msg= "You are not Login , Please Login First...";
+            return view('login')->with('message' , $msg );
        }
        
         
@@ -97,10 +110,10 @@ class BookController extends Controller
         foreach($_SESSION['cart'] as $item)
         {
             cart::create([
-                'b_id' => $item,
+                'b_id' => $item["id"],
                 'c_id' => $cid
             ]);
-            $b= Book::where('b_id', $item)->first();
+            $b= Book::where('b_id', $item["id"])->first();
             $price= $price + $b->price;
         } 
         
@@ -110,11 +123,11 @@ class BookController extends Controller
             'amount' => $price
         ]);
         $_SESSION['cart']= array();
-        //session_destroy();
         
-        $msg ="Book are added to transaction";
+        $msg ="Thank you for buying, Book are added to your transaction...";
         
-        return $this->index();
+      
+        return redirect()->action('UserController@show_trans');
     }
     
 }

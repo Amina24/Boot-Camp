@@ -1,5 +1,3 @@
-
-
 @extends('master')
 
 @section('content')
@@ -11,40 +9,29 @@
         
 
 
-        	<div class="templatemo_product_box">
-            	<h1>{{ $books[$i]['name'] }} <span>(by {{$books[$i]['author']}})</span></h1>
-   	      <img src="/images/templatemo_image_01.jpg" alt="image" />
+       <div class="parent_btn templatemo_product_box">
+            	<h1 class='book_name'>{{ $books[$i]['name'] }} </h1>
+                <img src="/images/templatemo_image_01.jpg" alt="image" />
+                <div class='book_id' > {{ $books[$i]['b_id'] }}</div>
                 <div class="product_info">
-                	<p>Desciption :  {{$books[$i]['description']}}   </p>
-                  <h3>$55</h3>
-                    <div class="buy_now_button"><a href="{{action('BookController@add_to_cart' , ['id'=> $books[$i]['b_id']])}}">Add to Cart</a></div>
+                    <p>Desciption :  {{$books[$i]['description']}}   </p >
+                
+                    <h3>Rs. {{$books[$i]['price']}}</h3>
+                    <div  class="show_cart_btn buy_now_button"><a >Add to Cart</a></div>
                     <div class="detail_button"><a href="{{ route('showBook',['id' => $books[$i]['b_id']]) }}">Detail</a></div>
                 </div>
                 <div class="cleaner">&nbsp;</div>
-            </div>
+        </div>
             
-            <div class="cleaner_with_width">&nbsp;</div>
-            
+    
+    @if($i%2 === 0)
+        <div class="cleaner_with_width">&nbsp;</div>
         
-        <?php $i++;  ?>
-            @if ( $i< count($books))
-        
-            <div class="templatemo_product_box">
-            	<h1>{{$books[$i]['name'] }}  <span>(by {{$books[$i]['author']}})</span></h1>
-       	    <img src="/images/templatemo_image_02.jpg" alt="image" />
-                <div class="product_info">
-                	<p>{{$books[$i]['description']}} Aliquam a dui, ac magna quis est eleifend dictum.</p>
-                    <h3>$35</h3>
-                    <div class="buy_now_button"><a href="{{action('BookController@add_to_cart' , ['id'=> $books[$i]['b_id']])}}">Add to Cart</a></div>
-                    <div class="detail_button"><a href="/book/{{$books[$i]['b_id']}}">Detail</a></div>
-                </div>
-                <div class="cleaner">&nbsp;</div>
-            </div>
+    @else
+     <div class="cleaner_with_height">&nbsp;</div>
+     
+    @endif
             
-            <div class="cleaner_with_height">&nbsp;</div>
-            
-            @endif
-
-            
+      
 @endfor
   @endsection

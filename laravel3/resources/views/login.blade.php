@@ -11,7 +11,11 @@
             
     <form  action=" {{ url('check') }}" method="post" > 
             
-           <table style="width:100%"> 
+        @if($message)
+        <h2> {{$message}}</h2>
+                 @endif
+        
+           <table style="width:100%">
             <tr> 
                 <td><label for="email"> Email  : </label></td> 
                 <td><input type="text" name="email" id="email" /></td> 
@@ -23,10 +27,19 @@
                 <td> <input type="text" name="password" id="password" /> </td>
                 
             </tr>
+            
+            
+            <tr>
+                 
+            </tr>
            </table>
         
          <button type="submit" class="buy_now_button"> Login In</button>
          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+         
+         
+        
+            
         </form>
             
               

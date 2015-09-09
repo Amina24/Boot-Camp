@@ -13,7 +13,9 @@ use App\Book;
 
 class UserController extends Controller
 {
-    
+    public function __construct() {
+        session_start();
+    }
 
    public function  index()
     {
@@ -44,7 +46,7 @@ class UserController extends Controller
             'card_no' => $card , 
         ]);
       
-        session_start();
+      //  session_start();
      
        $_SESSION['user_id']= $u->u_id;
        $_SESSION['user_name']= $u->u_name;
@@ -69,7 +71,7 @@ class UserController extends Controller
       
         if(isset($u))
         {
-              session_start();
+            //  session_start();
               
               
             $_SESSION['user_id']= $u->u_id;
@@ -78,14 +80,16 @@ class UserController extends Controller
             return $this->index();
         }
         else {
-            return $msg="You Enter Wrong email or password...";
+             $msg="You Enter Wrong email or password...\n Please try again..";
+            
+            return view('login')->with('message' , $msg );
         }
         
     }
     
     public function show_trans()
     {
-         session_start();
+         //session_start();
         $uid= $_SESSION['user_id'];
        if (isset( $uid ))
        {
@@ -94,16 +98,28 @@ class UserController extends Controller
        }
        else
        {
-           return $msg= "U r nt Login , Please Login First...";
+            $msg= "You are not Login , Please Login First...";
+            return view('login')->with('message' , $msg );
        }
     }
     
     public function  logout()
     {
-         session_start();
+      
         session_destroy();
-        return $this->index();
+        return redirect()->action('BookController@index');
     }
-  
+     public function  login()
+    {
+      
+        
+        return view('login')->with('message', '');
+    }
+     public function  signup()
+    {
+      
+        
+        return view('signup')->with('message', '');
+    }
 
 }

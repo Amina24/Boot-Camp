@@ -3,15 +3,17 @@
 @section('content')
 
 
-        <div id="templatemo_content_right">
-        	
-            <h1> {{ $book->name}} <span>(by author {{$book->author}})</span></h1>
+        <div  id="templatemo_content_right">
+            <div class="parent_btn">
+            <h1 class='book_name'> {{ $book->name}} </h1>
             <div class="image_panel"><img src="images/templatemo_image_02.jpg" alt="CSS Template" width="100" height="150" /></div>
           <h2>Read the lessons - Watch the videos - Do the exercises</h2>
             <ul>
-	            <li>By {{$book->author}}</li>
+                <li class="book_id">Unique ID :  {{$book->b_id}}</li>
+	        <li>By {{$book->author}}</li>
             	<li>January 2024</li>
                 <li>Pages: {{$book->pages}}</li>
+                <li>Price: {{$book->price}}</li>
                 <li>ISBN 10: 0-496-91612-0 | ISBN 13: 9780492518154</li>
             </ul>
             
@@ -25,8 +27,8 @@
                     
                           <div class="cleaner_with_height">&nbsp;</div>
 
-         <div class="buy_now_button"><a href="">Buy Now</a></div>
+         <div class="show_cart_btn buy_now_button"><a >Add to Cart</a></div>
                     
-                        
+            </div>            
                         
  @endsection
